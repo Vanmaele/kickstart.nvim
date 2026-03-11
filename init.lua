@@ -559,6 +559,15 @@ require('lazy').setup({
           --  For example, in C this would take you to the header.
           map('grD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
 
+          vim.keymap.set('', '<leader>tl', function()
+            local config = vim.diagnostic.config() or {}
+            if config.virtual_text then
+              vim.diagnostic.config { virtual_text = false, virtual_lines = true }
+            else
+              vim.diagnostic.config { virtual_text = true, virtual_lines = false }
+            end
+          end, { desc = '[T]oggle [l]sp_lines' })
+
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
