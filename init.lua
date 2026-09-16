@@ -321,6 +321,7 @@ require('lazy').setup({
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
         { 'gr', group = 'LSP Actions', mode = { 'n' } },
         { '<leader>g', group = '[G]it', mode = { 'n' } },
+        { '<leader>m', group = '[M]arkdown', mode = { 'n' } },
       },
     },
   },
@@ -669,6 +670,7 @@ require('lazy').setup({
         'stylua', -- Used to format Lua code
         'clangd',
         'clang-format',
+        'markdownlint', -- Markdown linter used by nvim-lint
         -- You can add other tools here that you want Mason to install
       })
 
