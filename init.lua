@@ -189,6 +189,12 @@ vim.diagnostic.config {
 
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
+-- Toggle diagnostics (LSP and linters) for the current buffer
+vim.keymap.set('n', '<leader>td', function()
+  local enabled = vim.diagnostic.is_enabled { bufnr = 0 }
+  vim.diagnostic.enable(not enabled, { bufnr = 0 })
+end, { desc = '[T]oggle [D]iagnostics' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
